@@ -55,13 +55,13 @@ export default class Presentation extends Component {
 
     
 
-    axios.post('https://r24hkart.herokuapp.com/admin/login', admin)
+    axios.post('https://carrombackend.herokuapp.com/admin/login ', admin)
       .then(function(response){
-        if(response.data.Code === 'Su')
+        if(response.data.redirect === '/welcome')
         {
-          window.location="/dash"
+          window.location="/#/dashboard/overview"
         }
-        else if(response.data.Code === 'Fa')
+        else if(response.data.redirect === '/signup')
         {
           window.location="/"
         }
@@ -96,7 +96,7 @@ export default class Presentation extends Component {
                   <div className="text-center text-md-center mb-4 mt-md-0">
                     <h3 className="mb-0">Sign in to our platform</h3>
                   </div>
-                  <Form className="mt-4" onSubmit={this.onSubmit}>
+                  <Form className="mt-4" onSubmit={this.onSubmit} >
                     <Form.Group id="email" className="mb-4">
                       <Form.Label>Your Email</Form.Label>
                       <InputGroup>
@@ -125,9 +125,9 @@ export default class Presentation extends Component {
                         <Card.Link as={Link} to={Routes.ForgotPassword.path} className="small text-end">Forgot Password?</Card.Link>
                       </div>
                     </Form.Group>
-                    <Link to="/dashboard/overview"><Button variant="primary" type="submit" className="w-100">
+                    <Button variant="primary" type="submit" className="w-100">
                       Sign in
-                    </Button></Link>
+                    </Button>
                   </Form>
   
                  

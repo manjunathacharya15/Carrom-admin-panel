@@ -1,94 +1,138 @@
+import React,{Component} from "react"
+import axios from 'axios';
+export default class Adduser extends Component{
+    constructor(props) {
+        super(props);
+    
+        this.onChangename = this.onChangename.bind(this);
+        this.onChangeemail= this.onChangeemail.bind(this);
+        this.onChangephonenumber = this.onChangephonenumber.bind(this);
+        this.onChangegender= this.onChangegender.bind(this);
+        this.onChangepassword = this.onChangepassword.bind(this);
+       
 
-import React from 'react';
-import { Col, Row, Container, Breadcrumb } from '@themesberg/react-bootstrap';
-
-import Documentation from "../../components/Documentation";
-
-export default () => {
-  return (
-    <article>
-      <Container className="px-0">
-        <Row className="d-flex flex-wrap flex-md-nowrap align-items-center py-4">
-          <Col className="d-block mb-4 mb-md-0">
-            <h1 className="h2">Breadcrumbs</h1>
-            <p className="mb-0">
-              Use breadcrumbs to indicate the navigational hierarchy of the current page.
-            </p>
-          </Col>
-        </Row>
-
-        <Documentation
-          title="Example"
-          description={
-            <p>Use the <code>&#x3C;Breadcrumb&#x3E;</code> component to show a clear navigational hierarchy for your users, wherever they may be on a given page. Using the <code>variant</code> modifier props you can update the color of the component.</p>
+        this.onSubmit = this.onSubmit.bind(this);
+        this.state = {
+            name: '',
+            email: '',
+         phonenumber:'',
+         gender:'',
+         password:'',
+         
+            trainer:[]
+            
+            
           }
-          scope={{ Row, Col, Breadcrumb }}
-          imports={`import { Breadcrumb } from '@themesberg/react-bootstrap';`}
-          example={`<Row>
-  <Col lg={6}>
-    <Breadcrumb listProps={{ className: "breadcrumb-primary breadcrumb-text-light text-white" }}>
-        <Breadcrumb.Item href="#home">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="#library">Library</Breadcrumb.Item>
-        <Breadcrumb.Item active>Data</Breadcrumb.Item>
-    </Breadcrumb>
-
-    <Breadcrumb listProps={{ className: "breadcrumb-secondary breadcrumb-text-light text-white" }}>
-        <Breadcrumb.Item href="#home">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="#library">Library</Breadcrumb.Item>
-        <Breadcrumb.Item active>Data</Breadcrumb.Item>
-    </Breadcrumb>
-
-    <Breadcrumb listProps={{ className: "breadcrumb-tertiary breadcrumb-text-light text-white" }}>
-        <Breadcrumb.Item href="#home">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="#library">Library</Breadcrumb.Item>
-        <Breadcrumb.Item active>Data</Breadcrumb.Item>
-    </Breadcrumb>
-
-    <Breadcrumb listProps={{ className: "breadcrumb-info breadcrumb-text-light text-white" }}>
-        <Breadcrumb.Item href="#home">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="#library">Library</Breadcrumb.Item>
-        <Breadcrumb.Item active>Data</Breadcrumb.Item>
-    </Breadcrumb>
-  </Col>
-</Row>`}
-        />
-
-        <Documentation
-          title="Transparent Breadcrumbs"
-          description={
-            <p>In order to make the <code>&#x3C;Breadcrumb&#x3E;</code> component transparent, all you need to do is add the <code>breadcrumb-transparent</code> modifier class to the parent component.</p>
+        }
+        onChangename(e) {
+            this.setState({
+              name: e.target.value
+            })
           }
-          scope={{ Row, Col, Breadcrumb }}
-          imports={`import { Breadcrumb } from '@themesberg/react-bootstrap';`}
-          example={`<Row>
-  <Col lg={6}>
-    <Breadcrumb listProps={{ className: "breadcrumb-primary breadcrumb-transparent" }}>
-        <Breadcrumb.Item href="#home">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="#library">Library</Breadcrumb.Item>
-        <Breadcrumb.Item active>Data</Breadcrumb.Item>
-    </Breadcrumb>
+          onChangeemail(e) {
+            this.setState({
+              email: e.target.value
+            })
+          }
+          onChangepassword(e) {
+            this.setState({
+              password: e.target.value
+            })
+          }
+          onChangephonenumber(e) {
+            this.setState({
+              phonenumber: e.target.value
+            })
+          }
+          onChangegender(e) {
+            this.setState({
+              gender: e.target.value
+            })
+          }
+     
+          onSubmit(e) {
+            e.preventDefault();
+        
+            const trainer = {
+              name: this.state.name,
+              email: this.state.email,
+              password:this.state.password,
+              phonenumber:this.state.phonenumber,
+              gender:this.state.gender
+             
 
-    <Breadcrumb listProps={{ className: "breadcrumb-secondary breadcrumb-transparent" }}>
-        <Breadcrumb.Item href="#home">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="#library">Library</Breadcrumb.Item>
-        <Breadcrumb.Item active>Data</Breadcrumb.Item>
-    </Breadcrumb>
-
-    <Breadcrumb listProps={{ className: "breadcrumb-tertiary breadcrumb-transparent" }}>
-        <Breadcrumb.Item href="#home">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="#library">Library</Breadcrumb.Item>
-        <Breadcrumb.Item active>Data</Breadcrumb.Item>
-    </Breadcrumb>
-
-    <Breadcrumb listProps={{ className: "breadcrumb-info breadcrumb-transparent" }}>
-        <Breadcrumb.Item href="#home">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="#library">Library</Breadcrumb.Item>
-        <Breadcrumb.Item active>Data</Breadcrumb.Item>
-    </Breadcrumb>
-  </Col>
-</Row>`}
-        />
-      </Container>
-    </article>
-  );
-};
+        
+            }
+        
+            console.log(trainer);
+        
+            axios.post('https://carrombackend.herokuapp.com/users/signup', trainer)
+            .then(function(response){
+        
+              if(response.data.returnCode ==='Success'){
+                  window.location='/#/components/buttons'
+              }
+             }) 
+          }
+        
+    render(){
+        return(
+            <div style={{marginTop:"50px"}}>
+                <h3 >Create users </h3>
+                <br/>
+      <form onSubmit={this.onSubmit}>
+      <div className="form-group"  style={{width:"400px"}}> 
+          <label>Name: </label>
+          <input  type="text"
+              required
+              className="form-control"
+              value={this.state.name}
+              onChange={this.onChangename}
+              />
+        </div>
+        <div className="form-group"  style={{width:"400px"}}> 
+          <label>Email: </label>
+          <input  type="email"
+              required
+              className="form-control"
+              value={this.state.email}
+              onChange={this.onChangeemail}
+              />
+        </div>
+        <div className="form-group"  style={{width:"400px"}}> 
+          <label>Password: </label>
+          <input  type="password"
+              required
+              className="form-control"
+              value={this.state.password}
+              onChange={this.onChangepassword}
+              />
+        </div>
+        <div className="form-group"  style={{width:"400px"}}> 
+          <label>Phone Number: </label>
+          <input  type="number"
+              required
+              className="form-control"
+              value={this.state.phonenumber}
+              onChange={this.onChangephonenumber}
+              />
+        </div>
+        <div className="form-group"  style={{width:"400px"}}> 
+          <label>Gender: </label>
+          <input  type="text"
+              required
+              className="form-control"
+              value={this.state.gender}
+              onChange={this.onChangegender}
+              />
+        </div>
+        <br/>
+        <div className="form-group"  >
+          <input type="submit" value="Create User" className="btn btn-primary" />
+        </div>
+      
+      </form>
+            </div>
+        )
+    }
+}

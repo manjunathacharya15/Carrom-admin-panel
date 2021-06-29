@@ -13,10 +13,10 @@ export default class buttons extends Component {
     super(props);
 
     this.deleteCustomer = this.deleteCustomer.bind(this)
-    this.onChangefirstname = this.onChangefirstname.bind(this);
+    this.onChangename = this.onChangename.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
-      firstname:'',
+      name:'',
       customers: []
     };
   }
@@ -24,7 +24,7 @@ export default class buttons extends Component {
 
   componentDidMount() {
    
-      axios.post('https://mitnessnew.herokuapp.com/customers/')
+      axios.post('https://carrombackend.herokuapp.com/users/')
     .then(response => {
       
       this.setState({ customers: response.data})
@@ -35,8 +35,8 @@ export default class buttons extends Component {
           return{
             select : false,
             id : e._id,
-            firstname : e.firstname,
-            lastname: e.lastname,
+            name : e.name,
+          
             email:e.email,
             phonenumber:e.phonenumber,
             gender:e.gender
@@ -60,7 +60,7 @@ export default class buttons extends Component {
       }
     });
    
-    axios.post('https://mitnessnew.herokuapp.com/customers/delete',{arrayids:arrayids})
+    axios.post('https://carrombackend.herokuapp.com/users/delete',{arrayids:arrayids})
    
     .then(response=>{
       if(response.data.message==="Deleted Successfully")
@@ -73,18 +73,18 @@ export default class buttons extends Component {
     ;
     
   };
-  onChangefirstname(e) {
+  onChangename(e) {
     this.setState({
-      firstname: e.target.value
+      name: e.target.value
     })
   }
   onSubmit(e) {
     e.preventDefault();
 
     const customer = {
-      firstname: this.state.firstname
+      name: this.state.name
     }
-    axios.post('https://mitnessnew.herokuapp.com/customers/search', customer)
+    axios.post('https://carrombackend.herokuapp.com/users/search', customer)
       .then(res => {
         this.setState({ customers: res.data })
       })
@@ -104,8 +104,8 @@ export default class buttons extends Component {
   
   customerList() {
     this.state.customers.sort(function(a,b){
-      if(a.firstname.toLowerCase() < b.firstname.toLowerCase()) return -1;
-      if(a.firstname.toLowerCase() > b.firstname.toLowerCase()) return 1;
+      if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+      if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
       return 0;
      })
 
@@ -162,7 +162,7 @@ export default class buttons extends Component {
        
         </div>
     
-    <div style={{width:"9%"}}><Link to="/welcome" className="nav-link"><button type="submit" value="AddNewTrainer" className="btn btn-success"><AddIcon/></button></Link></div>
+    <div style={{width:"9%"}}><Link to="/components/breadcrumbs" className="nav-link"><button type="submit" value="AddNewTrainer" className="btn btn-success"><AddIcon/></button></Link></div>
     
 <div style={{width:"28%"}}  >
     <button style={{height:"28",marginTop:"8px"}}
