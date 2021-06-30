@@ -1,5 +1,10 @@
 import React,{Component} from "react"
 import axios from 'axios';
+// import moment from "moment-timezone";
+// import Datetime from "react-datetime";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { Col, Row, Card, Form, Button} from '@themesberg/react-bootstrap';
 export default class Adduser extends Component{
     constructor(props) {
         super(props);
@@ -49,6 +54,9 @@ export default class Adduser extends Component{
               gender: e.target.value
             })
           }
+          onback(){
+            window.location='/#/components/buttons'
+            }
      
           onSubmit(e) {
             e.preventDefault();
@@ -78,60 +86,68 @@ export default class Adduser extends Component{
     render(){
         return(
             <div style={{marginTop:"50px"}}>
-                <h3 >Create users </h3>
-                <br/>
-      <form onSubmit={this.onSubmit}>
-      <div className="form-group"  style={{width:"400px"}}> 
-          <label>Name: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.name}
-              onChange={this.onChangename}
-              />
-        </div>
-        <div className="form-group"  style={{width:"400px"}}> 
-          <label>Email: </label>
-          <input  type="email"
-              required
-              className="form-control"
-              value={this.state.email}
-              onChange={this.onChangeemail}
-              />
-        </div>
-        <div className="form-group"  style={{width:"400px"}}> 
-          <label>Password: </label>
-          <input  type="password"
-              required
-              className="form-control"
-              value={this.state.password}
-              onChange={this.onChangepassword}
-              />
-        </div>
-        <div className="form-group"  style={{width:"400px"}}> 
-          <label>Phone Number: </label>
-          <input  type="number"
-              required
-              className="form-control"
-              value={this.state.phonenumber}
-              onChange={this.onChangephonenumber}
-              />
-        </div>
-        <div className="form-group"  style={{width:"400px"}}> 
-          <label>Gender: </label>
-          <input  type="text"
-              required
-              className="form-control"
-              value={this.state.gender}
-              onChange={this.onChangegender}
-              />
-        </div>
-        <br/>
-        <div className="form-group"  >
-          <input type="submit" value="Create User" className="btn btn-primary" />
-        </div>
-      
-      </form>
+              <Card border="light" className="bg-white shadow-sm mb-4">
+      <Card.Body>
+        <h5 className="mb-4">User information</h5>
+        <Form onSubmit={this.onSubmit}>
+          <Row>
+            <Col md={6} className="mb-3">
+              <Form.Group id="firstName">
+                <Form.Label> Name</Form.Label>
+                <Form.Control required type="text" placeholder="Enter your  name" value={this.state.name}
+              onChange={this.onChangename} />
+              </Form.Group>
+            </Col>
+            
+            <Col md={6} className="mb-3">
+              <Form.Group id="gender">
+                <Form.Label>Gender</Form.Label>
+                <Form.Control required type="text" placeholder="Gender" value={this.state.gender}
+              onChange={this.onChangegender} />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row className="align-items-center">
+   
+          </Row>
+          <Row>
+            <Col md={6} className="mb-3">
+              <Form.Group id="emal">
+                <Form.Label>Email</Form.Label>
+                <Form.Control required type="email" placeholder="name@company.com" value={this.state.email}
+              onChange={this.onChangeemail} />
+              </Form.Group>
+            </Col>
+            <Col md={6} className="mb-3">
+              <Form.Group id="phone">
+                <Form.Label>Password</Form.Label>
+                <Form.Control required type="password" placeholder="" value={this.state.password}
+              onChange={this.onChangepassword} />
+              </Form.Group>
+            </Col>
+            <Col md={6} className="mb-3">
+              <Form.Group id="phone">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control required type="number" placeholder="0123456789" value={this.state.phonenumber}
+              onChange={this.onChangephonenumber} />
+              </Form.Group>
+            </Col>
+          </Row>
+
+          
+          <div className="mt-3">
+            <Button variant="primary" type="submit">Save All</Button>
+          
+          </div>
+        
+        </Form>
+        <div className="mt-3">
+            <Button variant="primary" type="submit" onClick={this.onback}>back</Button>
+          
+          </div>
+      </Card.Body>
+    </Card>
+                
             </div>
         )
     }

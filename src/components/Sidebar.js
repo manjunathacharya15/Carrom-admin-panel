@@ -4,12 +4,12 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faBoxOpen, faChartPie, faCog, faFileAlt, faHandHoldingUsd, faSignOutAlt, faTable, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { Nav, Badge, Image, Button, Dropdown, Accordion, Navbar } from '@themesberg/react-bootstrap';
+import { faSignOutAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Nav, Badge, Image, Button,  Navbar } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { Routes } from "../routes";
-import ThemesbergLogo from "../assets/img/themesberg.svg";
+// import ThemesbergLogo from "../assets/img/themesberg.svg";
 import ReactHero from "../assets/img/technologies/react-hero-logo.svg";
 import ProfilePicture from "../assets/img/team/profile-picture-3.jpg";
 
@@ -21,28 +21,28 @@ export default (props = {}) => {
 
   const onCollapse = () => setShow(!show);
 
-  const CollapsableNavItem = (props) => {
-    const { eventKey, title, icon, children = null } = props;
-    const defaultKey = pathname.indexOf(eventKey) !== -1 ? eventKey : "";
+  // const CollapsableNavItem = (props) => {
+  //   const { eventKey, title, icon, children = null } = props;
+  //   const defaultKey = pathname.indexOf(eventKey) !== -1 ? eventKey : "";
 
-    return (
-      <Accordion as={Nav.Item} defaultActiveKey={defaultKey}>
-        <Accordion.Item eventKey={eventKey}>
-          <Accordion.Button as={Nav.Link} className="d-flex justify-content-between align-items-center">
-            <span>
-              <span className="sidebar-icon"><FontAwesomeIcon icon={icon} /> </span>
-              <span className="sidebar-text">{title}</span>
-            </span>
-          </Accordion.Button>
-          <Accordion.Body className="multi-level">
-            <Nav className="flex-column">
-              {children}
-            </Nav>
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
-    );
-  };
+  //   return (
+  //     <Accordion as={Nav.Item} defaultActiveKey={defaultKey}>
+  //       <Accordion.Item eventKey={eventKey}>
+  //         <Accordion.Button as={Nav.Link} className="d-flex justify-content-between align-items-center">
+  //           <span>
+  //             <span className="sidebar-icon"><FontAwesomeIcon icon={icon} /> </span>
+  //             <span className="sidebar-text">{title}</span>
+  //           </span>
+  //         </Accordion.Button>
+  //         <Accordion.Body className="multi-level">
+  //           <Nav className="flex-column">
+  //             {children}
+  //           </Nav>
+  //         </Accordion.Body>
+  //       </Accordion.Item>
+  //     </Accordion>
+  //   );
+  // };
 
   const NavItem = (props) => {
     const { title, link, external, target, icon, image, badgeText, badgeBg = "secondary", badgeColor = "primary" } = props;

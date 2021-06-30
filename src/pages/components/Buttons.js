@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import DeleteIcon from '@material-ui/icons/Delete';
-import AddIcon from '@material-ui/icons/Add';
 
+import {  faCog, faHome, faSearch,faPlus,faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { Col, Row, Form, Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown } from '@themesberg/react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
@@ -145,7 +146,56 @@ export default class buttons extends Component {
   
     return (
       
+      
       <div style={{marginTop:"50px"}}>
+        <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+        <div className="d-block mb-4 mb-md-0">
+          <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
+            <Breadcrumb.Item><FontAwesomeIcon icon={faHome} /></Breadcrumb.Item>
+            <Breadcrumb.Item>User Details</Breadcrumb.Item>
+          
+          </Breadcrumb>
+          <h4>User Details</h4>
+          <p className="mb-0">User information .</p>
+        </div>
+      
+      </div>
+      <div className="table-settings mb-4">
+        <Row className="justify-content-between align-items-center">
+          <Col xs={8} md={6} lg={3} xl={4}>
+            <Form onSubmit={this.onSubmit}>
+            <InputGroup>
+              <InputGroup.Text>
+                <FontAwesomeIcon icon={faSearch} />
+              </InputGroup.Text>
+              <Form.Control type="text" placeholder="Search" value={this.state.name} onChange={this.onChangename} />
+            </InputGroup>
+            </Form>
+          </Col>
+          <Col xs={4} md={2} xl={1} className="ps-md-0 text-end" style={{marginRight:"200px"}}>
+            <Dropdown as={ButtonGroup} >
+              <Dropdown.Toggle split as={Button} variant="link" className="text-dark m-0 p-0">
+                <span className="icon icon-sm icon-gray">
+                  <b>Actions</b>
+                  <FontAwesomeIcon icon={faCog} />
+                </span>
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="dropdown-menu-xs dropdown-menu-right">
+              
+                <Dropdown.Item className="d-flex fw-bold">
+                <Link to="/components/breadcrumbs" className="nav-link">    <span className="icon icon-small ms-auto">Adduser <FontAwesomeIcon icon={faPlus} style={{marginLeft:"16px"}} /></span></Link>
+                </Dropdown.Item>
+                <Dropdown.Item className="fw-bold" >
+                <span className="icon icon-small ms-auto" style={{marginRight:"50px"}}   onClick={() => {
+          this.deleteCustomerByIds();
+        }} >Delete <FontAwesomeIcon icon={faTrashAlt} style={{marginLeft:"5px"}} /> </span>
+                </Dropdown.Item>
+               
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+          </Row>
+          </div>
         
         <div class="container">
 
@@ -155,25 +205,16 @@ export default class buttons extends Component {
   <div class="col-md">
 
              <div style={{display:"flex"}}>
-    <div style={{width:"70%"}}><h4><b>User Details</b></h4></div>
+    <div style={{width:"70%"}}><h4><b></b></h4></div>
     <div style={{marginTop:"5px"}}>
     
         
        
         </div>
     
-    <div style={{width:"9%"}}><Link to="/components/breadcrumbs" className="nav-link"><button type="submit" value="AddNewTrainer" className="btn btn-success"><AddIcon/></button></Link></div>
+   
     
-<div style={{width:"28%"}}  >
-    <button style={{height:"28",marginTop:"8px"}}
-        className="btn btn-danger "
-        onClick={() => {
-          this.deleteCustomerByIds();
-        }}
-      >
-    <DeleteIcon />
-      </button>
-    </div>
+
 </div>
 
         <div style={{overflowX:"scroll",overflowY:"scroll"}}>
