@@ -1,9 +1,10 @@
 
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faCog, faEnvelopeOpen, faSignOutAlt, faUserShield } from "@fortawesome/free-solid-svg-icons";
+import {  faCog,  faSignOutAlt,  } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import {  Nav,  Image, Navbar, Dropdown, Container, } from '@themesberg/react-bootstrap';
+import { Link } from "react-router-dom";
 
 
 // import NOTIFICATIONS_DATA from "../data/notifications";
@@ -103,19 +104,19 @@ export default (props) => {
                   <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile
                 </Dropdown.Item>
                 <Dropdown.Item className="fw-bold">
-                  <FontAwesomeIcon icon={faCog} className="me-2" />Settings
+                  <Link to="/components/modals"><FontAwesomeIcon icon={faCog} className="me-2" />Change Password</Link>
+                </Dropdown.Item>
+                {/* <Dropdown.Item className="fw-bold">
+                  <FontAwesomeIcon icon={faEnvelopeOpen} className="me-2" /> 
                 </Dropdown.Item>
                 <Dropdown.Item className="fw-bold">
-                  <FontAwesomeIcon icon={faEnvelopeOpen} className="me-2" /> Messages
-                </Dropdown.Item>
-                <Dropdown.Item className="fw-bold">
-                  <FontAwesomeIcon icon={faUserShield} className="me-2" /> Support
-                </Dropdown.Item>
+                  <FontAwesomeIcon icon={faUserShield} className="me-2" /> 
+                </Dropdown.Item> */}
 
                 <Dropdown.Divider />
 
                 <Dropdown.Item className="fw-bold">
-                  <FontAwesomeIcon icon={faSignOutAlt} className="text-danger me-2" /> Logout
+                <Link to="/"> <FontAwesomeIcon icon={faSignOutAlt} className="text-danger me-2" /> Logout</Link> 
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

@@ -4,13 +4,13 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faTimes,faChartPie } from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt, faTimes,faUserTie,faMoneyCheckAlt } from "@fortawesome/free-solid-svg-icons";
 import { Nav, Badge, Image, Button,  Navbar } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { Routes } from "../routes";
 // import ThemesbergLogo from "../assets/img/themesberg.svg";
-import ReactHero from "../assets/img/technologies/react-hero-logo.svg";
+// import ReactHero from "../assets/img/technologies/react-hero-logo.svg";
 import ProfilePicture from "../assets/img/team/profile-picture-3.jpg";
 
 export default (props = {}) => {
@@ -71,7 +71,7 @@ export default (props = {}) => {
     <>
       <Navbar expand={false} collapseOnSelect variant="dark" className="navbar-theme-primary px-4 d-md-none">
         <Navbar.Brand className="me-lg-5" as={Link} to={Routes.DashboardOverview.path}>
-          <Image src={ReactHero} className="navbar-brand-light" />
+          <Image src={"http://www.onlinewebfonts.com/icon"} className="navbar-brand-light" />
         </Navbar.Brand>
         <Navbar.Toggle as={Button} aria-controls="main-navbar" onClick={onCollapse}>
           <span className="navbar-toggler-icon" />
@@ -86,8 +86,8 @@ export default (props = {}) => {
                   <Image src={ProfilePicture} className="card-img-top rounded-circle border-white" />
                 </div>
                 <div className="d-block">
-                  <h6>Hi, Jane</h6>
-                  <Button as={Link} variant="secondary" size="xs" to={Routes.Signin.path} className="text-dark">
+                  <h6>Hi, Priyanka Padmini</h6>
+                  <Button as={Link} variant="secondary" size="xs" to={Routes.Presentation.path} className="text-dark">
                     <FontAwesomeIcon icon={faSignOutAlt} className="me-2" /> Sign Out
                   </Button>
                 </div>
@@ -97,9 +97,9 @@ export default (props = {}) => {
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="Carrom Admin Panel" link={Routes.DashboardOverview.path} image={ReactHero} />
-              <NavItem title="User Details" link={Routes.Buttons.path} image={ReactHero} />
-              <NavItem title="Payments" link={Routes.Alerts.path} icon={faChartPie} />
+              <NavItem title="Carrom Admin Panel" link={Routes.DashboardOverview.path} image={"data:image/svg+xml;base64,CjxpbWcgc3R5bGU9IndpZHRoOiAxMDAlOyBoZWlnaHQ6IGF1dG87IGZsb2F0OiBsZWZ0O2JhY2tncm91bmQtaW1hZ2U6IG5vbmU7IiBzcmM9Ii8vcGljLm9ubGluZXdlYmZvbnRzLmNvbS9zdmcvaW1nXzU1NTM3My5wbmciIGFsdD0iUGxheSBTcG9ydCBDYXJyb20gQm9hcmQgU3RyaWtlIFF1ZWVuIj4KICA="  } />
+              <NavItem title="User Details" link={Routes.Buttons.path} icon={faUserTie}npm />
+              <NavItem title="Payments" link={Routes.Alerts.path} icon={faMoneyCheckAlt} />
               {/* <NavItem title="Transactions" icon={faHandHoldingUsd} link={Routes.Transactions.path} />
                <NavItem title="Settings" icon={faCog} link={Routes.Settings.path} />
 
