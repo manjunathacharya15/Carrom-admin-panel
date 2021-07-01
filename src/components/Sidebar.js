@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt, faTimes,faChartPie } from "@fortawesome/free-solid-svg-icons";
 import { Nav, Badge, Image, Button,  Navbar } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -99,7 +99,7 @@ export default (props = {}) => {
             <Nav className="flex-column pt-3 pt-md-0">
               <NavItem title="Carrom Admin Panel" link={Routes.DashboardOverview.path} image={ReactHero} />
               <NavItem title="User Details" link={Routes.Buttons.path} image={ReactHero} />
-              {/* <NavItem title="Overview" link={Routes.DashboardOverview.path} icon={faChartPie} /> */}
+              <NavItem title="Payments" link={Routes.Alerts.path} icon={faChartPie} />
               {/* <NavItem title="Transactions" icon={faHandHoldingUsd} link={Routes.Transactions.path} />
                <NavItem title="Settings" icon={faCog} link={Routes.Settings.path} />
 
