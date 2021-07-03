@@ -15,7 +15,7 @@ export const Routes = {
     ResetPassword: { path: "/examples/reset/:token" },
     Lock: { path: "/examples/lock" },
     NotFound: { path: "/examples/404" },
-    ServerError: { path: "/examples/500" },
+    ServerError: { path: "/examples/500:token" },
 
     // docs
     DocsOverview: { path: "/documentation/overview" },
