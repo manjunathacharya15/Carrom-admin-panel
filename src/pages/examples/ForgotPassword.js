@@ -6,9 +6,62 @@ import { Col, Row, Form, Card, Button, Container, InputGroup } from '@themesberg
 import { Link } from 'react-router-dom';
 
 import { Routes } from "../../routes";
+import { Component } from "react";
+import axios from "axios";
+
+export default class ForgotPassword extends Component{
+  constructor(props) {
+    super(props);
+
+    this.onChangeemail = this.onChangeemail.bind(this);
+    
+  
+   
+    
+
+    this.onSubmit = this.onSubmit.bind(this);
+
+    this.state = {
+      email: '',
+     
+
+      
+      customer:[]
+      
+      
+    }
+  }
+
+  onChangeemail(e) {
+    this.setState({
+      email: e.target.value
+    })
+  }
+
+ 
+  
 
 
-export default () => {
+ 
+ 
+  
+  onSubmit(e) {
+    e.preventDefault();
+
+    const customer = {
+      email: this.state.email,
+    
+      
+     
+      
+
+    }
+
+
+    axios.post('https://carrombackend.herokuapp.com/admin/forgot', customer)
+      .then(res => alert("verfication code sent successfully "));
+  }
+  render(){
   return (
     <main>
       <section className="vh-lg-100 mt-4 mt-lg-0 bg-soft d-flex align-items-center">
@@ -23,11 +76,11 @@ export default () => {
               <div className="signin-inner my-3 my-lg-0 bg-white shadow-soft border rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                 <h3>Forgot your password?</h3>
                 <p className="mb-4">Don't fret! Just type in your email and we will send you a code to reset your password!</p>
-                <Form>
+                <Form onSubmit={this.onSubmit}>
                   <div className="mb-4">
                     <Form.Label htmlFor="email">Your Email</Form.Label>
                     <InputGroup id="email">
-                      <Form.Control required autoFocus type="email" placeholder="john@company.com" />
+                      <Form.Control required autoFocus type="email" placeholder="john@company.com"  onChange={this.onChangeemail} />
                     </InputGroup>
                   </div>
                   <Button variant="primary" type="submit" className="w-100">
@@ -41,4 +94,6 @@ export default () => {
       </section>
     </main>
   );
-};
+  }
+}
+

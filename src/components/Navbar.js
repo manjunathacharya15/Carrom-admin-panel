@@ -101,7 +101,7 @@ export default (props) => {
               </Dropdown.Toggle>
               <Dropdown.Menu className="user-dropdown dropdown-menu-right mt-2">
                 <Dropdown.Item className="fw-bold">
-                  <FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile
+                 <Link to="/components/tabs"><FontAwesomeIcon icon={faUserCircle} className="me-2" /> My Profile</Link> 
                 </Dropdown.Item>
                 <Dropdown.Item className="fw-bold">
                   <Link to="/components/modals"><FontAwesomeIcon icon={faCog} className="me-2" />Change Password</Link>

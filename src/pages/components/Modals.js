@@ -78,10 +78,10 @@ export default class CreateExercise extends Component {
   render() {
     return (
     <div style={{marginTop:"100px"}}>
-      <h3 style={{marginLeft:"300px"}}>Create New Password </h3>
+      <h3 style={{}}>Create New Password </h3>
       <br/>
       <form onSubmit={this.onSubmit}>
-      <div className="form-group" style={{width:"450px",marginLeft:"300px"}} > 
+      <div className="form-group" style={{width:"450px"}} > 
           <label style={{}}>Email: </label>
           <input  type="text"
               required
@@ -91,7 +91,7 @@ export default class CreateExercise extends Component {
               />
         </div>
         <br/>
-        <div className="form-group" style={{width:"450px",marginLeft:"300px"}}> 
+        <div className="form-group" style={{width:"450px"}}> 
           <label>Old Password: </label>
           <input  type="password"
               required
@@ -101,7 +101,7 @@ export default class CreateExercise extends Component {
               />
         </div>
         <br/>
-        <div className="form-group" style={{width:"450px",marginLeft:"300px"}}>
+        <div className="form-group" style={{width:"450px"}}>
           <label>New Password </label>
           <input 
               type="password" 
@@ -113,7 +113,7 @@ export default class CreateExercise extends Component {
        <br/>
        
        
-        <div className="form-group" style={{marginLeft:"300px"}}>
+        <div className="form-group" style={{}}>
           <input type="submit" value="Change  password" className="btn btn-primary" />
         </div>
       </form>
