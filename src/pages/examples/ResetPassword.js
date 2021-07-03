@@ -62,7 +62,7 @@ export default class ResetPassword extends Component{
 
     const customer = {
       password:this.state.password,
-      confirmpassword:this.state.confirmpassword
+     
       
     
       
