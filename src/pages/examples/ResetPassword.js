@@ -55,7 +55,7 @@ export default class ResetPassword extends Component{
         })
        
   })
-  console.log("hellow")
+  console.log(this.state.token)
 
 })
 .catch((error) => {
