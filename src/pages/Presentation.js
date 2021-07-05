@@ -57,11 +57,11 @@ export default class Presentation extends Component {
 
     axios.post('https://carrombackend.herokuapp.com/admin/login ', admin)
       .then(function(response){
-        if(response.data.redirect === '/welcome')
+        if(response.data === 'valid')
         {
           window.location="/#/dashboard/overview"
         }
-        else if(response.data.redirect === '/signup')
+        else if(response.data=== 'invaliduser')
         {
           window.location="/"
         }
