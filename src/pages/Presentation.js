@@ -15,7 +15,7 @@ export default class Presentation extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeemail = this.onChangeemail.bind(this);
+    this.onChangeusername = this.onChangeusername.bind(this);
     this.onChangepassword = this.onChangepassword.bind(this);
     
     
@@ -23,7 +23,7 @@ export default class Presentation extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      email: '',
+      username: '',
       password: '',
     
     
@@ -32,9 +32,9 @@ export default class Presentation extends Component {
     }
   }
 
-  onChangeemail(e) {
+  onChangeusername(e) {
     this.setState({
-      email: e.target.value
+      username: e.target.value
     })
   }
 
@@ -48,7 +48,7 @@ export default class Presentation extends Component {
     e.preventDefault();
 
     const admin = {
-      email: this.state.email,
+      username: this.state.username,
       password: this.state.password,
      
     }
@@ -98,13 +98,13 @@ export default class Presentation extends Component {
                   </div>
                   <Form className="mt-4" onSubmit={this.onSubmit} >
                     <Form.Group id="email" className="mb-4">
-                      <Form.Label>Your Email</Form.Label>
+                      <Form.Label>Your Username</Form.Label>
                       <InputGroup>
                         <InputGroup.Text>
                         
                           <FontAwesomeIcon icon={faEnvelope} />
                         </InputGroup.Text>
-                        <Form.Control autoFocus required type="email" placeholder="example@company.com" value={this.state.email} onChange={this.onChangeemail} />
+                        <Form.Control autoFocus required type="text" placeholder="example" value={this.state.username} onChange={this.onChangeusername} />
                       </InputGroup>
                     </Form.Group>
                     <Form.Group>
