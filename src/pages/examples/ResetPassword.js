@@ -55,7 +55,7 @@ export default class ResetPassword extends Component{
         })
        
   })
-  console.log(this.state)
+  console.log(this.state.customer[0])
 
 })
 .catch((error) => {
@@ -96,7 +96,7 @@ export default class ResetPassword extends Component{
 
     }
     if(this.state.password === this.state.confirmpassword){
-      axios.post('https://carrombackend.herokuapp.com/admin/reset/' + this.state.customers.token, customer)
+      axios.post('https://carrombackend.herokuapp.com/admin/reset/' + this.state.customer[0], customer)
       .then(res => alert("password saved "));
     }
 else
