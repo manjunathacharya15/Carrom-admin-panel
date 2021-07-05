@@ -41,9 +41,9 @@ export default class ResetPassword extends Component{
     axios.post('https://carrombackend.herokuapp.com/admin/')
     .then(response => {
       
-      this.setState({ customers: response.data})
+      this.setState({ customer: response.data})
       let result=response.data
-      this.setState({customers:
+      this.setState({customer:
         result.map(e => {
           return{
            
@@ -55,7 +55,7 @@ export default class ResetPassword extends Component{
         })
        
   })
-  console.log(this.state.token)
+  console.log(this.state.customer.token)
 
 })
 .catch((error) => {
