@@ -55,7 +55,7 @@ export default class ResetPassword extends Component{
         })
        
   })
-  console.log(this.state.customer.token)
+  console.log(this.state)
 
 })
 .catch((error) => {
