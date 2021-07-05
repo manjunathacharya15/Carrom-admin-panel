@@ -37,6 +37,31 @@ export default class ResetPassword extends Component{
       
     }
   }
+  componentDidMount(){
+    axios.post('https://carrombackend.herokuapp.com/admin/')
+    .then(response => {
+      
+      this.setState({ customers: response.data})
+      let result=response.data
+      this.setState({customers:
+        result.map(e => {
+          return{
+           
+            token : e.resetPasswordToken,
+            
+
+          }
+         
+        })
+       
+  })
+  console.log("hellow")
+
+})
+.catch((error) => {
+  console.log(error);
+})
+  }
 
   onChangepassword(e) {
     this.setState({
@@ -71,7 +96,7 @@ export default class ResetPassword extends Component{
 
     }
     if(this.state.password === this.state.confirmpassword){
-      axios.post('https://carrombackend.herokuapp.com/admin/reset/' + this.props.req.params.token, customer)
+      axios.post('https://carrombackend.herokuapp.com/admin/reset/' + this.state.customers.token, customer)
       .then(res => alert("password saved "));
     }
 else
