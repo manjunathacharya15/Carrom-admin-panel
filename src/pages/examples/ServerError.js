@@ -1,14 +1,14 @@
 
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft, faEnvelope, faUnlockAlt } from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft,  faUnlockAlt } from "@fortawesome/free-solid-svg-icons";
 import { Col, Row, Form, Card, Button, Container, InputGroup } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import { Routes } from "../../routes";
 import { Component } from "react";
 import axios from "axios";
-import { thisExpression } from "@babel/types";
+// import { thisExpression } from "@babel/types";
 
 
 export default class ResetPassword extends Component{

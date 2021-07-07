@@ -12,7 +12,7 @@ export const Routes = {
     Signin: { path: "/examples/sign-in" },
     Signup: { path: "/examples/sign-up" },
     ForgotPassword: { path: "/examples/forgot-password" },
-    ResetPassword: { path: "/examples/reset/:token" },
+    ResetPassword: { path: "/examples/reset/" },
     Lock: { path: "/examples/lock" },
     NotFound: { path: "/examples/404" },
     ServerError: { path: "/examples/500" },
