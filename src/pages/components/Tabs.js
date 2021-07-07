@@ -2,13 +2,56 @@ import React, { Component } from 'react'
 import {   faHome,  } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Form, Button,  Breadcrumb, Card } from '@themesberg/react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 
 
 
 export default class Tabs extends Component {
+  constructor(props) {
+    super(props);
+
+    
+   
+
+    
+    this.state = {
+        
+     
+     
+        trainer:[]
+        
+        
+      }
+    }
+    componentDidMount(){
+      axios.post('https://carrombackend.herokuapp.com/admin/' )
+      .then(response => {
+        
+        this.setState({ trainer: response.data})
+
+        let result=response.data
+        this.setState({trainer:
+          result.map(e => {
+            return{
+              username:e.username,
+              email:e.email
+  
+            }
+          })
+          
+      })
+      console.log(this.state)
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
+      
   render() {
     return (
-      <div>
+      this.state.trainer.map(currentcust=>(
+        <div>
         <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <div className="d-block mb-4 mb-md-0">
           <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
@@ -39,7 +82,12 @@ export default class Tabs extends Component {
             <Col md={6} className="mb-3">
               <Form.Group id="firstName">
                 <Form.Label > Admin Name</Form.Label>
-                <Form.Control required type="text" placeholder="" />
+                <input  type="text"
+             
+              className="form-control"
+              value={currentcust.username}
+              
+              />
               </Form.Group>
             </Col>
           
@@ -49,7 +97,7 @@ export default class Tabs extends Component {
           <Col md={6} className="mb-3">
               <Form.Group id="gender">
                 <Form.Label>Admin Gmail</Form.Label>
-                <Form.Control required type="text" placeholder=""  />
+                <Form.Control required type="text" placeholder="" value={currentcust.email} />
               </Form.Group>
             </Col>
           </Row>
@@ -67,6 +115,9 @@ export default class Tabs extends Component {
     </Card>
           </div>
       </div>
+      )
+        )
+     
     )
   }
 }
