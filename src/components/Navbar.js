@@ -1,5 +1,5 @@
 
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faBell, faCog, faSignOutAlt,   } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
@@ -9,10 +9,20 @@ import { Link } from "react-router-dom";
 
 import NOTIFICATIONS_DATA from "../data/notifications";
 import Profile3 from "../assets/img/team/profile-picture-3.jpg";
+import axios from "axios";
 
 
 export default (props) => {
-  const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
+  const [notifications,setNotifications]=useState([]);
+useEffect(()=>{
+  axios.post("https://carrombackend.herokuapp.com/users/")
+  .then((response)=>{
+    setNotifications(response.data)
+   
+  })
+})
+
+  // const [notifications, setNotifications] = useState(NOTIFICATIONS_DATA);
   const areNotificationsRead = notifications.reduce((acc, notif) => acc && notif.read, true);
 
   const markNotificationsAsRead = () => {
@@ -23,25 +33,30 @@ export default (props) => {
 
 
   const Notification = (props) => {
-    const { link, sender, image, time, message, read = false } = props;
+    const { name, email, read = false,created } = props;
     const readClassName = read ? "" : "text-danger";
 
     return (
-      <ListGroup.Item action href={link} className="border-bottom border-light">
+      <ListGroup.Item  className="border-bottom border-light">
         <Row className="align-items-center">
-          <Col className="col-auto">
-            <Image src={image} className="user-avatar lg-avatar rounded-circle" />
-          </Col>
+         
           <Col className="ps-0 ms--2">
-            <div className="d-flex justify-content-between align-items-center">
+            
               <div>
-                <h4 className="h6 mb-0 text-small">{sender}</h4>
+                <h4 className="h6 mb-0 text-small">{name}</h4>
               </div>
-              <div className="text-end">
-                <small className={readClassName}>{time}</small>
+              <div className="text">
+                <small className={readClassName}>{email}</small>
               </div>
-            </div>
-            <p className="font-small mt-1 mb-0">{message}</p>
+              <p className="font-small mt-1 mb-0">{created}
+          
+                </p>
+                <p className="font-small mt-1 mb-0">
+          User Created
+          </p>
+
+           
+           
           </Col>
         </Row>
       </ListGroup.Item>

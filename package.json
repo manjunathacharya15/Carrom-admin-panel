@@ -14,7 +14,6 @@
     "themesberg"
   ],
   "license": "MIT",
- 
   "bugs": {
     "url": "https://github.com/themesberg/volt-react-dashboard/issues"
   },
@@ -37,7 +36,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@themesberg/react-bootstrap": "^1.4.1",
     "axios": "^0.21.1",
-    "bootstrap": "5.0.0-beta1",
+    "bootstrap": "^5.0.0-beta1",
     "chartist": "^0.11.4",
     "chartist-plugin-tooltips-updated": "^0.1.4",
     "moment-timezone": "^0.5.31",
@@ -45,6 +44,7 @@
     "react": "^16.13.1",
     "react-chartist": "^0.14.3",
     "react-copy-to-clipboard": "^5.0.3",
+    "react-datepicker": "^4.1.1",
     "react-datetime": "^3.0.4",
     "react-dom": "^16.13.1",
     "react-github-btn": "^1.2.0",

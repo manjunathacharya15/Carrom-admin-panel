@@ -175,20 +175,21 @@ export default class buttons extends Component {
           <Col xs={4} md={2} xl={1} className="ps-md-0 text-end" style={{marginRight:"200px"}}>
             <Dropdown as={ButtonGroup} >
               <Dropdown.Toggle split as={Button} variant="link" className="text-dark m-0 p-0">
-                <span className="icon icon-sm icon-gray">
+                <span className="icon icon-sm icon-gray" style={{marginRight:"15px"}}>
                   <b>Actions</b>
-                  <FontAwesomeIcon icon={faCog} />
+                  
                 </span>
+                <FontAwesomeIcon icon={faCog} />
               </Dropdown.Toggle>
               <Dropdown.Menu className="dropdown-menu-xs dropdown-menu-right">
               
                 <Dropdown.Item className="d-flex fw-bold">
-                <Link to="/components/breadcrumbs" className="nav-link">    <span className="icon icon-small ms-auto">Adduser <FontAwesomeIcon icon={faPlus} style={{marginLeft:"16px"}} /></span></Link>
+                <Link to="/components/breadcrumbs" className="nav-link">    <span className="icon icon-small ms-auto" style={{marginRight:"50px"}}>Adduser <FontAwesomeIcon icon={faPlus}  /></span></Link>
                 </Dropdown.Item>
                 <Dropdown.Item className="fw-bold" >
-                <span className="icon icon-small ms-auto" style={{marginRight:"50px"}}   onClick={() => {
+                <span style={{marginRight:"10px"}}    onClick={() => {
           this.deleteCustomerByIds();
-        }} >Delete <FontAwesomeIcon icon={faTrashAlt} style={{marginLeft:"5px"}} /> </span>
+        }}  > Delete <FontAwesomeIcon icon={faTrashAlt} style={{marginLeft:"5px"}} /> </span>
                 </Dropdown.Item>
                
               </Dropdown.Menu>

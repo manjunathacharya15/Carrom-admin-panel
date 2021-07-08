@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faTimes,faUserTie,faMoneyCheckAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt, faTimes,faUserTie,faMoneyCheckAlt,faHandHoldingUsd } from "@fortawesome/free-solid-svg-icons";
 import { Nav, Badge, Image, Button,  Navbar } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -100,7 +100,8 @@ export default (props = {}) => {
               <NavItem title="Carrom Admin Panel" link={Routes.DashboardOverview.path} image={"data:image/svg+xml;base64,CjxpbWcgc3R5bGU9IndpZHRoOiAxMDAlOyBoZWlnaHQ6IGF1dG87IGZsb2F0OiBsZWZ0O2JhY2tncm91bmQtaW1hZ2U6IG5vbmU7IiBzcmM9Ii8vcGljLm9ubGluZXdlYmZvbnRzLmNvbS9zdmcvaW1nXzU1NTM3My5wbmciIGFsdD0iUGxheSBTcG9ydCBDYXJyb20gQm9hcmQgU3RyaWtlIFF1ZWVuIj4KICA="  } />
               <NavItem title="User Details" link={Routes.Buttons.path} icon={faUserTie}npm />
               <NavItem title="Payments" link={Routes.Alerts.path} icon={faMoneyCheckAlt} />
-              {/* <NavItem title="Transactions" icon={faHandHoldingUsd} link={Routes.Transactions.path} />
+              <NavItem title="Tournament" icon={faHandHoldingUsd} link={Routes.Accordions.path} />
+              {/* 
                <NavItem title="Settings" icon={faCog} link={Routes.Settings.path} />
 
               <CollapsableNavItem eventKey="tables/" title="Tables" icon={faTable}>

@@ -136,13 +136,13 @@ export default class Adduser extends Component{
 
           
           <div className="mt-3">
-            <Button variant="primary" type="submit">Save All</Button>
+            <Button variant="primary" type="submit">Save </Button>
           
           </div>
         
         </Form>
         <div className="mt-3">
-            <Button variant="primary" type="submit" onClick={this.onback}>back</Button>
+            <Button variant="primary" type="submit" onClick={this.onback}>Back</Button>
           
           </div>
       </Card.Body>
