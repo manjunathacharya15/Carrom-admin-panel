@@ -96,7 +96,7 @@ useEffect(()=>{
                     Notifications
                   </Nav.Link>
 
-                  {notifications.map(n => <Notification key={`notification-${n.id}`} {...n} />)}
+                  {notifications.map(n => <Notification key={`notification-${n._id}`} {...n} />)}
 
                   <Dropdown.Item className="text-center text-primary fw-bold py-3">
                     View all
