@@ -7,7 +7,7 @@ import {  Row, Col, Nav,  Image, Navbar, Dropdown, Container, ListGroup } from '
 import { Link } from "react-router-dom";
 
 
-import NOTIFICATIONS_DATA from "../data/notifications";
+
 import Profile3 from "../assets/img/team/profile-picture-3.jpg";
 import axios from "axios";
 
