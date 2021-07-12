@@ -19,6 +19,16 @@ export default class Accordion extends Component{
         this.handlestartChange=this.handlestartChange.bind(this);
         this.handleendChange=this.handleendChange.bind(this);
         this.onChangeentryfee = this.onChangeentryfee.bind(this);
+        this.onChangeamount1 = this.onChangeamount1.bind(this);
+        this.onChangeamount2 = this.onChangeamount2.bind(this);
+        this.onChangeamount3 = this.onChangeamount3.bind(this);
+        this.onChangeamount4 = this.onChangeamount4.bind(this);
+        this.onChangeamount5 = this.onChangeamount5.bind(this);
+        this.onChangeamount6 = this.onChangeamount6.bind(this);
+        this.onChangeamount7 = this.onChangeamount7.bind(this);
+        this.onChangeamount8 = this.onChangeamount8.bind(this);
+        this.onChangeamount9 = this.onChangeamount9.bind(this);
+         this.onChangeamount10 = this.onChangeamount10.bind(this);
       
        
         
@@ -31,9 +41,20 @@ export default class Accordion extends Component{
           startDate:new Date(),
           endDate:new Date(),
          entryfee:'',
-         winningamount:'',
+         winningamount:[],
+         winning:[],
          numnberofwinners:'',
          percentage:'',
+         amount1:'',
+         amount2:'',
+         amount3:'',
+         amount4:'',
+         amount5:'',
+         amount6:'',
+         amount7:'',
+         amount8:'',
+         amount9:'',
+         amount10:'',
          
             trainer:[]
             
@@ -62,6 +83,56 @@ export default class Accordion extends Component{
               percentage: e.target.value
             })
           }
+          onChangeamount1(e) {
+            this.setState({
+              amount1: e.target.value
+            })
+          }
+          onChangeamount2(e) {
+            this.setState({
+              amount2: e.target.value
+            })
+          }
+          onChangeamount3(e) {
+            this.setState({
+              amount3: e.target.value
+            })
+          }
+          onChangeamount4(e) {
+            this.setState({
+              amount4: e.target.value
+            })
+          }
+          onChangeamount5(e) {
+            this.setState({
+              amount5: e.target.value
+            })
+          }
+          onChangeamount6(e) {
+            this.setState({
+              amount6: e.target.value
+            })
+          }
+          onChangeamount7(e) {
+            this.setState({
+              amount7: e.target.value
+            })
+          }
+          onChangeamount8(e) {
+            this.setState({
+              amount8: e.target.value
+            })
+          }
+          onChangeamount9(e) {
+            this.setState({
+              amount9: e.target.value
+            })
+          }
+          onChangeamount10(e) {
+            this.setState({
+              amount10: e.target.value
+            })
+          }
           handlestartChange(date) {
             this.setState({
               startDate: date
@@ -82,7 +153,29 @@ export default class Accordion extends Component{
      
           onSubmit(e) {
             e.preventDefault();
-        
+         
+// this.state.winning={
+//   amount1:this.state.amount1,
+//   amount2:this.state.amount2,
+//   amount3:this.state.amount3,
+//   amount4:this.state.amount4,
+//   amount5:this.state.amount5,
+//   amount6:this.state.amount6,
+//   amount7:this.state.amount7,
+//   amount8:this.state.amount8,
+//   amount9:this.state.amount9,
+//   amount10:this.state.amount10,
+  
+
+// }
+  this.state.winningamount=[this.state.amount1,this.state.amount2,this.state.amount3,this.state.amount4,this.state.amount5,this.state.amount6,this.state.amount7,this.state.amount8,this.state.amount9,this.state.amount10]
+ 
+    
+     
+  
+   
+  
+
             const trainer = {
               startdate: this.state.startDate,
               enddate: this.state.endDate,
@@ -190,72 +283,72 @@ export default class Accordion extends Component{
           <Row>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
-                <Form.Label style={{marginLeft:"50px"}}>Amount1</Form.Label>
-                <Form.Control required style={{width:"100px",marginLeft:"40px"}}        type="email" placeholder="" value={this.state.email}
-              onChange={this.onChangeemail} />
+                <Form.Label style={{}}>Amount1</Form.Label>
+                <Form.Control required style={{}}        type="number" placeholder="" value={this.state.amount1}
+              onChange={this.onChangeamount1} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
-                <Form.Label style={{marginLeft:"50px"}}>Amount2</Form.Label>
-                <Form.Control required style={{width:"100px",marginLeft:"40px"}} type="email" placeholder="" value={this.state.email}
-              onChange={this.onChangeemail} />
+                <Form.Label style={{}}>Amount2</Form.Label>
+                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount2}
+              onChange={this.onChangeamount2} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
-                <Form.Label style={{marginLeft:"50px"}}>Amount3</Form.Label>
-                <Form.Control required style={{width:"100px",marginLeft:"40px"}} type="email" placeholder="" value={this.state.email}
-              onChange={this.onChangeemail} />
+                <Form.Label style={{}}>Amount3</Form.Label>
+                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount3}
+              onChange={this.onChangeamount3} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
-                <Form.Label style={{marginLeft:"50px"}}>Amount4</Form.Label>
-                <Form.Control required style={{width:"100px",marginLeft:"40px"}} type="email" placeholder="" value={this.state.email}
-              onChange={this.onChangeemail} />
+                <Form.Label style={{}}>Amount4</Form.Label>
+                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount4}
+              onChange={this.onChangeamount4} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
-                <Form.Label style={{marginLeft:"50px"}}>Amount5</Form.Label>
-                <Form.Control required style={{width:"100px",marginLeft:"40px"}} type="email" placeholder="" value={this.state.email}
-              onChange={this.onChangeemail} />
+                <Form.Label style={{}}>Amount5</Form.Label>
+                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount5}
+              onChange={this.onChangeamount5} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
-                <Form.Label style={{marginLeft:"50px"}}>Amount6</Form.Label>
-                <Form.Control required style={{width:"100px",marginLeft:"40px"}} type="email" placeholder="" value={this.state.email}
-              onChange={this.onChangeemail} />
+                <Form.Label style={{}}>Amount6</Form.Label>
+                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount6}
+              onChange={this.onChangeamount6} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
-                <Form.Label style={{marginLeft:"50px"}}>Amount7</Form.Label>
-                <Form.Control required style={{width:"100px",marginLeft:"40px"}} type="email" placeholder="" value={this.state.email}
-              onChange={this.onChangeemail} />
+                <Form.Label style={{}}>Amount7</Form.Label>
+                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount7}
+              onChange={this.onChangeamount7} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
-                <Form.Label style={{marginLeft:"50px"}}>Amount8</Form.Label>
-                <Form.Control required style={{width:"100px",marginLeft:"40px"}} type="email" placeholder="" value={this.state.email}
-              onChange={this.onChangeemail} />
+                <Form.Label style={{}}>Amount8</Form.Label>
+                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount8}
+              onChange={this.onChangeamount8} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
-                <Form.Label style={{marginLeft:"50px"}}>Amount9</Form.Label>
-                <Form.Control required style={{width:"100px",marginLeft:"40px"}} type="email" placeholder="" value={this.state.email}
-              onChange={this.onChangeemail} />
+                <Form.Label style={{}}>Amount9</Form.Label>
+                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount9}
+              onChange={this.onChangeamount9} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
-                <Form.Label style={{marginLeft:"50px"}}>Amount10</Form.Label>
-                <Form.Control required style={{width:"100px",marginLeft:"40px"}} type="email" placeholder="" value={this.state.email}
-              onChange={this.onChangeemail} />
+                <Form.Label style={{}}>Amount10</Form.Label>
+                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount10}
+              onChange={this.onChangeamount10} />
               </Form.Group>
             </Col>
             </Row>
