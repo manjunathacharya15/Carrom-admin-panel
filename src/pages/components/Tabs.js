@@ -6,6 +6,7 @@ import axios from 'axios';
 
 
 
+
 export default class Tabs extends Component {
   constructor(props) {
     super(props);
@@ -34,20 +35,24 @@ export default class Tabs extends Component {
           result.map(e => {
             return{
               username:e.username,
-              email:e.email
+              email:e.email,
+              phonenumber:e.phonenumber
   
             }
           })
           
       })
-      console.log(this.state)
+     
       })
       .catch((error) => {
         console.log(error);
       })
   }
 
-      
+
+      onback(){
+            window.location='/#/dashboard/overview'
+            }
   render() {
     return (
       this.state.trainer.map(currentcust=>(
@@ -101,6 +106,15 @@ export default class Tabs extends Component {
               </Form.Group>
             </Col>
           </Row>
+          <Row className="align-items-center">
+          <Col md={6} className="mb-3">
+              <Form.Group id="gender">
+                <Form.Label>Admin Phone Number</Form.Label>
+                <Form.Control required type="text" placeholder="" value={currentcust.phonenumber} />
+              </Form.Group>
+            </Col>
+          </Row>
+         
          
 
           
