@@ -287,7 +287,7 @@ export default class Accordion extends Component{
               <Form.Group id="percenta">
                 <Form.Label>Percentage</Form.Label>
                 <Form.Control required type="number" placeholder="" value={this.state.percentage}
-              onChange={this.onChangepercentage} />
+              onChange={this.onChangepercentage} max="100" />
               </Form.Group>
             </Col>
             <h6>Winning Amount</h6>
