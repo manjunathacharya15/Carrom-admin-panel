@@ -6,6 +6,7 @@ import DatePicker from 'react-datepicker'
 // import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import { Col, Row, Card, Form, Button} from '@themesberg/react-bootstrap';
 import 'react-datepicker/dist/react-datepicker.css';
+import moment from "moment-timezone";
 // import moment from "moment";
 
 export default class Accordion extends Component{
@@ -32,7 +33,6 @@ export default class Accordion extends Component{
       
        
         
-
 
        
 
@@ -143,6 +143,12 @@ export default class Accordion extends Component{
               endDate: date
             })
           }
+          isvalidate(){
+            const yesterday=moment().subtract(1,'day')
+         const disablePastDt = current => {
+          return current.isAfter(yesterday);
+        };
+          }
         
           
           
@@ -216,9 +222,11 @@ export default class Accordion extends Component{
             </Col>
             <Col md={6} className="mb-3">
             <DatePicker
+            
              selected={this.state.startDate}
              onChange={this.handlestartChange}
              name="startDate"
+        minDate={moment().toDate()}
              timeFormat="HH:mm"
              showTimeSelect
              timeCaption="time"
@@ -255,8 +263,12 @@ export default class Accordion extends Component{
           <Col md={6} className="mb-3">
               <Form.Group id="emal">
                 <Form.Label>Entry Fee</Form.Label>
-                <Form.Control required type="text" placeholder="" value={this.state.entryfee}
-              onChange={this.onChangeentryfee} />
+                <Form.Control required type="number" max="1000000" placeholder="" value={this.state.entryfee}
+              onChange={this.onChangeentryfee}
+              
+             />
+          
+              
               </Form.Group>
               </Col>
          
@@ -266,7 +278,7 @@ export default class Accordion extends Component{
             <Col md={6} className="mb-3">
               <Form.Group id="phone">
                 <Form.Label>Number Of Winniers</Form.Label>
-                <Form.Control required type="number" placeholder="" value={this.state.numnberofwinners}
+                <Form.Control required type="number" max="10" placeholder="" value={this.state.numnberofwinners }
               onChange={this.onChangenumberofwinners} />
               </Form.Group>
             </Col>
@@ -284,70 +296,70 @@ export default class Accordion extends Component{
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
                 <Form.Label style={{}}>Amount1</Form.Label>
-                <Form.Control required style={{}}        type="number" placeholder="" value={this.state.amount1}
+                <Form.Control required style={{}}    min="1"  max="100000"   type="number" placeholder="" value={this.state.amount1}
               onChange={this.onChangeamount1} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
                 <Form.Label style={{}}>Amount2</Form.Label>
-                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount2}
+                <Form.Control required style={{}} type="number" max="100000"  placeholder="" value={this.state.amount2}
               onChange={this.onChangeamount2} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
                 <Form.Label style={{}}>Amount3</Form.Label>
-                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount3}
+                <Form.Control required style={{}} type="number" max="100000"  placeholder="" value={this.state.amount3}
               onChange={this.onChangeamount3} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
                 <Form.Label style={{}}>Amount4</Form.Label>
-                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount4}
+                <Form.Control required style={{}} type="number" max="100000"  placeholder="" value={this.state.amount4}
               onChange={this.onChangeamount4} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
                 <Form.Label style={{}}>Amount5</Form.Label>
-                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount5}
+                <Form.Control required style={{}} type="number" max="100000"  placeholder="" value={this.state.amount5}
               onChange={this.onChangeamount5} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
                 <Form.Label style={{}}>Amount6</Form.Label>
-                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount6}
+                <Form.Control required style={{}} type="number" max="100000"  placeholder="" value={this.state.amount6}
               onChange={this.onChangeamount6} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
                 <Form.Label style={{}}>Amount7</Form.Label>
-                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount7}
+                <Form.Control required style={{}} type="number" max="100000"  placeholder="" value={this.state.amount7}
               onChange={this.onChangeamount7} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
                 <Form.Label style={{}}>Amount8</Form.Label>
-                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount8}
+                <Form.Control required style={{}} type="number" max="100000"  placeholder="" value={this.state.amount8}
               onChange={this.onChangeamount8} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
                 <Form.Label style={{}}>Amount9</Form.Label>
-                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount9}
+                <Form.Control required style={{}} type="number" max="100000"  placeholder="" value={this.state.amount9}
               onChange={this.onChangeamount9} />
               </Form.Group>
             </Col>
             <Col md={12} className="mb-3">
               <Form.Group id="emal">
                 <Form.Label style={{}}>Amount10</Form.Label>
-                <Form.Control required style={{}} type="number" placeholder="" value={this.state.amount10}
+                <Form.Control required style={{}} type="number" max="100000"  placeholder="" value={this.state.amount10}
               onChange={this.onChangeamount10} />
               </Form.Group>
             </Col>
