@@ -143,12 +143,8 @@ export default class Accordion extends Component{
               endDate: date
             })
           }
-          isvalidate(){
-            const yesterday=moment().subtract(1,'day')
-         const disablePastDt = current => {
-          return current.isAfter(yesterday);
-        };
-          }
+      
+          
         
           
           
@@ -251,6 +247,7 @@ export default class Accordion extends Component{
              selected={this.state.endDate}
              onChange={this.handleendChange}
              name="endDate"
+             minDate={moment().toDate()}
              timeFormat="HH:mm"
              showTimeSelect
              timeIntervals={15}

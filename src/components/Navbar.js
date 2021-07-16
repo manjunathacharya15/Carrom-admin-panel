@@ -110,7 +110,7 @@ useEffect(()=>{
                 <div className="media d-flex align-items-center">
                   <Image src={Profile3} className="user-avatar md-avatar rounded-circle" />
                   <div className="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                    <span className="mb-0 font-small fw-bold">Priyanka Padmini</span>
+                    <span className="mb-0 font-small fw-bold">Raja</span>
                   </div>
                 </div>
               </Dropdown.Toggle>
